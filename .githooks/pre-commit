@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# Refuse any staged file larger than the cap, whatever its extension.
+# The cap is 5 MB; change it per clone with: git config hooks.maxFileMb <n>
+# Enable once per clone with: git config core.hooksPath .githooks
+
+max_mb=$(git config --get hooks.maxFileMb || echo 5)
+max_bytes=$((max_mb * 1024 * 1024))
+too_big=""
+
+# Added, copied, modified or renamed paths, NUL-separated so spaces survive.
+git diff --cached --name-only --diff-filter=ACMR -z | {
+  while IFS= read -r -d '' path; do
+    size=$(git cat-file -s ":$path" 2>/dev/null) || continue
+    if [ "$size" -gt "$max_bytes" ]; then
+      too_big="${too_big}  $(awk -v b="$size" 'BEGIN { printf "%.1f MB", b / 1048576 }')  $path\n"
+    fi
+  done
+
+  if [ -n "$too_big" ]; then
+    printf "pre-commit: these staged files are over the %s MB cap:\n%b" "$max_mb" "$too_big" >&2
+    printf "Unstage them (git restore --staged <path>) and keep them out of the repo,\n" >&2
+    printf "or add their type to .gitignore. This repo is public.\n" >&2
+    exit 1
+  fi
+}

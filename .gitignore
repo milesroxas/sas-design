@@ -1,9 +1,120 @@
+# sas-design is a public repo for design work, which is mostly heavy binaries.
+# Rule: source text (.elyx, .html, .css, .js, .json, .md, .svg) and small images
+# are committed; video, audio, raw design sources, archives, renders and caches
+# never are. The pre-commit hook in .githooks/ also refuses any staged file over
+# the size cap, so a heavy file with an unlisted extension is caught too.
+
+# OS and editor
 .DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Dependencies, builds and caches (prototypes, tooling)
 node_modules/
+.pnpm-store/
+.next/
+.vite/
+.turbo/
+.cache/
+.parcel-cache/
+dist/
+build/
+out/
+coverage/
+storybook-static/
+.vercel/
+*.log
+*.tsbuildinfo
 
-# Elyx installed dependencies (commit elyx.lock, not the copies)
-elyx/elyx_deps/
-elyx/.pnpm-store/
+# Elyx: installed dependency copies (commit elyx.lock, not these)
+elyx_deps/
 
-# OpenFilm renders: the MP4 saved beside each film.html (source media in a film's folders stays tracked)
-studio/*/*.mp4
+# OpenFilm: per-film cache, history and media index (Studio rebuilds it)
+.film/
+
+# Rendered output: Elyx renders, exports, contact sheets
+renders/
+exports/
+
+# Video (OpenFilm renders, footage, screen recordings)
+*.mp4
+*.m4v
+*.mov
+*.webm
+*.mkv
+*.avi
+*.wmv
+*.flv
+*.mxf
+*.mts
+*.m2ts
+*.3gp
+*.r3d
+*.braw
+
+# Audio (music, voice-over, sound effects)
+*.wav
+*.aif
+*.aiff
+*.flac
+*.mp3
+*.m4a
+*.aac
+*.ogg
+*.opus
+*.wma
+*.caf
+
+# Raw and layered images, design sources
+*.psd
+*.psb
+*.tif
+*.tiff
+*.exr
+*.hdr
+*.dng
+*.raw
+*.cr2
+*.cr3
+*.nef
+*.arw
+*.heic
+*.ai
+*.eps
+*.indd
+*.sketch
+*.fig
+*.xd
+*.aep
+*.prproj
+*.drp
+
+# 3D
+*.blend
+*.blend1
+*.fbx
+*.obj
+*.abc
+*.usd
+*.usda
+*.usdc
+*.usdz
+*.c4d
+
+# Archives and disk images
+*.zip
+*.7z
+*.rar
+*.tar
+*.gz
+*.tgz
+*.dmg
+*.iso
+*.pkg
