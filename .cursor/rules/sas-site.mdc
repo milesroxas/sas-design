@@ -1,0 +1,6 @@
+---
+description: sas-site is the source of truth for every token, block, page and piece of copy designed in sas-design. Load the sas-site-reference skill.
+alwaysApply: true
+---
+
+Read the owning file in `../sas-site` before you design, name or change anything here. The map is in `AGENTS.md` and `.agents/skills/sas-site-reference/SKILL.md`.

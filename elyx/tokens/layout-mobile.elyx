@@ -1,0 +1,26 @@
+import "./layout.elyx" as base
+
+@context(media="mobile")
+file {}
+
+// Page layout lengths at the mobile artboard (375px wide). Below md the
+// BlockGrid is one column, so every span fills the content width.
+export mobileLayout = tokens : base.layout {
+  viewport: 375,
+  gutter: 16,
+  band-tight: 32,
+  band-normal: 64,
+  band-loose: 128,
+  stack-tight: 64,
+  stack-normal: 128,
+  stack-loose: 256,
+  content-width: 343,
+  span-1: 343,
+  span-2: 343,
+  span-3: 343,
+  span-4: 343,
+  span-5: 343,
+  span-6: 343,
+  span-7: 343,
+  span-8: 343
+}

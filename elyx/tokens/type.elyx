@@ -1,0 +1,43 @@
+// Type companions that do not change with the viewport: families, styles,
+// line heights and tracking. Sizes live in type-size.elyx.
+// Source: sas-site src/app/(frontend)/globals.css `@theme`.
+// Families. The site loads Geist and Geist Mono from the `geist` package.
+export fonts = tokens {
+  sans: "Geist",
+  heading: sans,
+  mono: "Geist Mono"
+}
+
+// Named styles. The site's base ink weight is 380 on Geist's variable axis;
+// Elyx picks named instances, so the nearest is Regular (400).
+export fontStyles = tokens {
+  normal: "Regular",
+  medium: "Medium",
+  semibold: "SemiBold"
+}
+
+// Line heights as multipliers of the font size.
+export leading = tokens {
+  display: 1.05,
+  heading: 1.1,
+  subheading: 1.25,
+  lead: 1.4,
+  body: 1.6,
+  // text-sm: 14px on a 20px line
+  sm: 1.43,
+  // eyebrow: text-xs/none
+  eyebrow: 1,
+  // code: 13px on a 24px line
+  code: 1.85
+}
+
+// Letter spacing as a percent of the font size (em x 100).
+export tracking = tokens {
+  display: -0.03,
+  heading: -0.025,
+  subheading: -0.01,
+  lead: 0,
+  body: 0,
+  sm: 0,
+  eyebrow: 0
+}

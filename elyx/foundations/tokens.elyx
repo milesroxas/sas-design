@@ -1,0 +1,956 @@
+use "resources/fonts/Geist-Variable.ttf"
+use "resources/fonts/GeistMono-Variable.ttf"
+
+import "tokens/colors.elyx" as colorTokens
+import "tokens/type.elyx" as typeTokens
+import "tokens/type-size.elyx" as sizeTokens
+import "tokens/space.elyx" as spaceTokens
+import "tokens/layout.elyx" as layoutTokens
+
+// A token specimen: every color token as a swatch and the seven text roles.
+// Render with --context theme=dark or --context media=mobile to check contexts.
+// One color swatch: a chip and its token name.
+export swatch = frame {
+  left: 0px,
+  top: -400px,
+  width: 152px,
+  layout: {stack: {direction: .column, item-gap: spaceTokens.space.s-2}},
+  children: [chip, swatchName],
+
+  chip = frame {
+    width: 100%,
+    height: 64px,
+    fill: colorTokens.colors.background,
+    border: colorTokens.colors.border,
+    corner-radius: spaceTokens.radius.md
+  }
+
+  swatchName = text {
+    width: 100%,
+    fill: colorTokens.colors.muted-foreground,
+    contents: "token",
+    font-size: sizeTokens.typeSize.eyebrow,
+    font-family: typeTokens.fonts.mono,
+    font-style: typeTokens.fontStyles.normal,
+    line-height: typeTokens.leading.sm
+  }
+}
+
+// A group heading inside the specimen.
+export specimenHeading = text {
+  left: 240px,
+  top: -400px,
+  fill: colorTokens.colors.foreground,
+  contents: "Group",
+  font-size: sizeTokens.typeSize.subheading,
+  font-family: typeTokens.fonts.sans,
+  font-style: typeTokens.fontStyles.normal,
+  line-height: typeTokens.leading.subheading,
+  letter-spacing: typeTokens.tracking.subheading
+}
+
+export colorSpecimen = frame {
+  title: "Color tokens",
+  caption: "Every token in tokens/colors.elyx. Light by default; theme=dark shows the dark palette.",
+  left: 0px,
+  top: 0px,
+  width: layoutTokens.layout.viewport,
+  layout: {stack: {direction: .column, item-gap: spaceTokens.space.s-8}},
+  fill: colorTokens.colors.background,
+  padding: [spaceTokens.space.s-24, layoutTokens.layout.gutter],
+  children: [
+    colorHeading1,
+    colorRow1,
+    colorHeading2,
+    colorRow2,
+    colorHeading3,
+    colorRow3,
+    colorHeading4,
+    colorRow4,
+    colorHeading5,
+    colorRow5
+  ],
+
+  colorHeading1 = text : specimenHeading {
+    contents: "Ground and surfaces"
+  }
+
+  colorRow1 = frame {
+    width: 100%,
+    layout: {
+      stack: {
+        item-gap: spaceTokens.space.s-6,
+        wrap: .true,
+        line-gap: spaceTokens.space.s-6
+      }
+    },
+    children: [
+      backgroundSwatch,
+      foregroundSwatch,
+      cardSwatch,
+      cardForegroundSwatch,
+      popoverSwatch,
+      popoverForegroundSwatch,
+      mutedSwatch,
+      mutedForegroundSwatch,
+      borderSwatch,
+      inputSwatch,
+      ringSwatch
+    ],
+
+    backgroundSwatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.background
+      }
+
+      swatchName {
+        contents: "background"
+      }
+    }
+
+    foregroundSwatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.foreground
+      }
+
+      swatchName {
+        contents: "foreground"
+      }
+    }
+
+    cardSwatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.card
+      }
+
+      swatchName {
+        contents: "card"
+      }
+    }
+
+    cardForegroundSwatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.card-foreground
+      }
+
+      swatchName {
+        contents: "card-foreground"
+      }
+    }
+
+    popoverSwatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.popover
+      }
+
+      swatchName {
+        contents: "popover"
+      }
+    }
+
+    popoverForegroundSwatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.popover-foreground
+      }
+
+      swatchName {
+        contents: "popover-foreground"
+      }
+    }
+
+    mutedSwatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.muted
+      }
+
+      swatchName {
+        contents: "muted"
+      }
+    }
+
+    mutedForegroundSwatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.muted-foreground
+      }
+
+      swatchName {
+        contents: "muted-foreground"
+      }
+    }
+
+    borderSwatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.border
+      }
+
+      swatchName {
+        contents: "border"
+      }
+    }
+
+    inputSwatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.input
+      }
+
+      swatchName {
+        contents: "input"
+      }
+    }
+
+    ringSwatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.ring
+      }
+
+      swatchName {
+        contents: "ring"
+      }
+    }
+  }
+
+  colorHeading2 = text : specimenHeading {
+    contents: "Actions and bands"
+  }
+
+  colorRow2 = frame {
+    width: 100%,
+    layout: {
+      stack: {
+        item-gap: spaceTokens.space.s-6,
+        wrap: .true,
+        line-gap: spaceTokens.space.s-6
+      }
+    },
+    children: [
+      primarySwatch,
+      primaryForegroundSwatch,
+      secondarySwatch,
+      secondaryForegroundSwatch,
+      accentSwatch,
+      accentForegroundSwatch,
+      tertiarySwatch,
+      tertiaryForegroundSwatch,
+      neutralSwatch,
+      neutralForegroundSwatch,
+      brandSwatch,
+      brandForegroundSwatch,
+      destructiveSwatch
+    ],
+
+    primarySwatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.primary
+      }
+
+      swatchName {
+        contents: "primary"
+      }
+    }
+
+    primaryForegroundSwatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.primary-foreground
+      }
+
+      swatchName {
+        contents: "primary-foreground"
+      }
+    }
+
+    secondarySwatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.secondary
+      }
+
+      swatchName {
+        contents: "secondary"
+      }
+    }
+
+    secondaryForegroundSwatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.secondary-foreground
+      }
+
+      swatchName {
+        contents: "secondary-foreground"
+      }
+    }
+
+    accentSwatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.accent
+      }
+
+      swatchName {
+        contents: "accent"
+      }
+    }
+
+    accentForegroundSwatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.accent-foreground
+      }
+
+      swatchName {
+        contents: "accent-foreground"
+      }
+    }
+
+    tertiarySwatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.tertiary
+      }
+
+      swatchName {
+        contents: "tertiary"
+      }
+    }
+
+    tertiaryForegroundSwatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.tertiary-foreground
+      }
+
+      swatchName {
+        contents: "tertiary-foreground"
+      }
+    }
+
+    neutralSwatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.neutral
+      }
+
+      swatchName {
+        contents: "neutral"
+      }
+    }
+
+    neutralForegroundSwatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.neutral-foreground
+      }
+
+      swatchName {
+        contents: "neutral-foreground"
+      }
+    }
+
+    brandSwatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.brand
+      }
+
+      swatchName {
+        contents: "brand"
+      }
+    }
+
+    brandForegroundSwatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.brand-foreground
+      }
+
+      swatchName {
+        contents: "brand-foreground"
+      }
+    }
+
+    destructiveSwatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.destructive
+      }
+
+      swatchName {
+        contents: "destructive"
+      }
+    }
+  }
+
+  colorHeading3 = text : specimenHeading {
+    contents: "Status, charts, figures"
+  }
+
+  colorRow3 = frame {
+    width: 100%,
+    layout: {
+      stack: {
+        item-gap: spaceTokens.space.s-6,
+        wrap: .true,
+        line-gap: spaceTokens.space.s-6
+      }
+    },
+    children: [
+      successSwatch,
+      warningSwatch,
+      errorSwatch,
+      activeSwatch,
+      chart1Swatch,
+      chart2Swatch,
+      chart3Swatch,
+      chart4Swatch,
+      chart5Swatch,
+      figure1Swatch,
+      figure2Swatch,
+      figure3Swatch,
+      figure4Swatch,
+      figureReferenceSwatch,
+      scrimSwatch,
+      scrimForegroundSwatch
+    ],
+
+    successSwatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.success
+      }
+
+      swatchName {
+        contents: "success"
+      }
+    }
+
+    warningSwatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.warning
+      }
+
+      swatchName {
+        contents: "warning"
+      }
+    }
+
+    errorSwatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.error
+      }
+
+      swatchName {
+        contents: "error"
+      }
+    }
+
+    activeSwatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.active
+      }
+
+      swatchName {
+        contents: "active"
+      }
+    }
+
+    chart1Swatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.chart-1
+      }
+
+      swatchName {
+        contents: "chart-1"
+      }
+    }
+
+    chart2Swatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.chart-2
+      }
+
+      swatchName {
+        contents: "chart-2"
+      }
+    }
+
+    chart3Swatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.chart-3
+      }
+
+      swatchName {
+        contents: "chart-3"
+      }
+    }
+
+    chart4Swatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.chart-4
+      }
+
+      swatchName {
+        contents: "chart-4"
+      }
+    }
+
+    chart5Swatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.chart-5
+      }
+
+      swatchName {
+        contents: "chart-5"
+      }
+    }
+
+    figure1Swatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.figure-1
+      }
+
+      swatchName {
+        contents: "figure-1"
+      }
+    }
+
+    figure2Swatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.figure-2
+      }
+
+      swatchName {
+        contents: "figure-2"
+      }
+    }
+
+    figure3Swatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.figure-3
+      }
+
+      swatchName {
+        contents: "figure-3"
+      }
+    }
+
+    figure4Swatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.figure-4
+      }
+
+      swatchName {
+        contents: "figure-4"
+      }
+    }
+
+    figureReferenceSwatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.figure-reference
+      }
+
+      swatchName {
+        contents: "figure-reference"
+      }
+    }
+
+    scrimSwatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.scrim
+      }
+
+      swatchName {
+        contents: "scrim"
+      }
+    }
+
+    scrimForegroundSwatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.scrim-foreground
+      }
+
+      swatchName {
+        contents: "scrim-foreground"
+      }
+    }
+  }
+
+  colorHeading4 = text : specimenHeading {
+    contents: "Dark panel and syntax"
+  }
+
+  colorRow4 = frame {
+    width: 100%,
+    layout: {
+      stack: {
+        item-gap: spaceTokens.space.s-6,
+        wrap: .true,
+        line-gap: spaceTokens.space.s-6
+      }
+    },
+    children: [
+      bandDarkBackgroundSwatch,
+      bandDarkForegroundSwatch,
+      bandDarkMutedSwatch,
+      bandDarkMutedForegroundSwatch,
+      bandDarkCardSwatch,
+      bandDarkSecondarySwatch,
+      bandDarkAccentSwatch,
+      bandDarkBorderSwatch,
+      bandDarkInputSwatch,
+      syntaxOperatorSwatch,
+      syntaxKeywordSwatch,
+      syntaxEntitySwatch,
+      syntaxPropertySwatch,
+      syntaxStringSwatch,
+      syntaxNumberSwatch
+    ],
+
+    bandDarkBackgroundSwatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.band-dark-background
+      }
+
+      swatchName {
+        contents: "band-dark-background"
+      }
+    }
+
+    bandDarkForegroundSwatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.band-dark-foreground
+      }
+
+      swatchName {
+        contents: "band-dark-foreground"
+      }
+    }
+
+    bandDarkMutedSwatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.band-dark-muted
+      }
+
+      swatchName {
+        contents: "band-dark-muted"
+      }
+    }
+
+    bandDarkMutedForegroundSwatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.band-dark-muted-foreground
+      }
+
+      swatchName {
+        contents: "band-dark-muted-foreground"
+      }
+    }
+
+    bandDarkCardSwatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.band-dark-card
+      }
+
+      swatchName {
+        contents: "band-dark-card"
+      }
+    }
+
+    bandDarkSecondarySwatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.band-dark-secondary
+      }
+
+      swatchName {
+        contents: "band-dark-secondary"
+      }
+    }
+
+    bandDarkAccentSwatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.band-dark-accent
+      }
+
+      swatchName {
+        contents: "band-dark-accent"
+      }
+    }
+
+    bandDarkBorderSwatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.band-dark-border
+      }
+
+      swatchName {
+        contents: "band-dark-border"
+      }
+    }
+
+    bandDarkInputSwatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.band-dark-input
+      }
+
+      swatchName {
+        contents: "band-dark-input"
+      }
+    }
+
+    syntaxOperatorSwatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.syntax-operator
+      }
+
+      swatchName {
+        contents: "syntax-operator"
+      }
+    }
+
+    syntaxKeywordSwatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.syntax-keyword
+      }
+
+      swatchName {
+        contents: "syntax-keyword"
+      }
+    }
+
+    syntaxEntitySwatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.syntax-entity
+      }
+
+      swatchName {
+        contents: "syntax-entity"
+      }
+    }
+
+    syntaxPropertySwatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.syntax-property
+      }
+
+      swatchName {
+        contents: "syntax-property"
+      }
+    }
+
+    syntaxStringSwatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.syntax-string
+      }
+
+      swatchName {
+        contents: "syntax-string"
+      }
+    }
+
+    syntaxNumberSwatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.syntax-number
+      }
+
+      swatchName {
+        contents: "syntax-number"
+      }
+    }
+  }
+
+  colorHeading5 = text : specimenHeading {
+    contents: "Sidebar"
+  }
+
+  colorRow5 = frame {
+    width: 100%,
+    layout: {
+      stack: {
+        item-gap: spaceTokens.space.s-6,
+        wrap: .true,
+        line-gap: spaceTokens.space.s-6
+      }
+    },
+    children: [
+      sidebarSwatch,
+      sidebarForegroundSwatch,
+      sidebarPrimarySwatch,
+      sidebarPrimaryForegroundSwatch,
+      sidebarAccentSwatch,
+      sidebarAccentForegroundSwatch,
+      sidebarBorderSwatch,
+      sidebarRingSwatch
+    ],
+
+    sidebarSwatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.sidebar
+      }
+
+      swatchName {
+        contents: "sidebar"
+      }
+    }
+
+    sidebarForegroundSwatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.sidebar-foreground
+      }
+
+      swatchName {
+        contents: "sidebar-foreground"
+      }
+    }
+
+    sidebarPrimarySwatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.sidebar-primary
+      }
+
+      swatchName {
+        contents: "sidebar-primary"
+      }
+    }
+
+    sidebarPrimaryForegroundSwatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.sidebar-primary-foreground
+      }
+
+      swatchName {
+        contents: "sidebar-primary-foreground"
+      }
+    }
+
+    sidebarAccentSwatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.sidebar-accent
+      }
+
+      swatchName {
+        contents: "sidebar-accent"
+      }
+    }
+
+    sidebarAccentForegroundSwatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.sidebar-accent-foreground
+      }
+
+      swatchName {
+        contents: "sidebar-accent-foreground"
+      }
+    }
+
+    sidebarBorderSwatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.sidebar-border
+      }
+
+      swatchName {
+        contents: "sidebar-border"
+      }
+    }
+
+    sidebarRingSwatch = frame : swatch {
+      chip {
+        fill[0].color: colorTokens.colors.sidebar-ring
+      }
+
+      swatchName {
+        contents: "sidebar-ring"
+      }
+    }
+  }
+}
+
+export typeSpecimen = frame {
+  title: "Type roles",
+  caption: "The seven text roles from sas-site typography.ts. media=mobile shows the 375px end of each clamp.",
+  left: 1824px,
+  top: 0px,
+  width: layoutTokens.layout.viewport,
+  layout: {stack: {direction: .column, item-gap: spaceTokens.space.s-12}},
+  fill: colorTokens.colors.background,
+  padding: [spaceTokens.space.s-24, layoutTokens.layout.gutter],
+  children: [
+    displaySample,
+    headingSample,
+    subheadingSample,
+    leadSample,
+    bodySample,
+    smSample,
+    eyebrowSample,
+    codeSample
+  ],
+
+  displaySample = text {
+    width: 100%,
+    fill: colorTokens.colors.foreground,
+    contents: "Display: hero and statement",
+    font-size: sizeTokens.typeSize.display,
+    font-family: typeTokens.fonts.sans,
+    font-style: typeTokens.fontStyles.normal,
+    line-height: typeTokens.leading.display,
+    letter-spacing: typeTokens.tracking.display
+  }
+
+  headingSample = text {
+    width: 100%,
+    fill: colorTokens.colors.foreground,
+    contents: "Heading: page title, section opener",
+    font-size: sizeTokens.typeSize.heading,
+    font-family: typeTokens.fonts.sans,
+    font-style: typeTokens.fontStyles.normal,
+    line-height: typeTokens.leading.heading,
+    letter-spacing: typeTokens.tracking.heading
+  }
+
+  subheadingSample = text {
+    width: 100%,
+    fill: colorTokens.colors.foreground,
+    contents: "Subheading: a block's own heading",
+    font-size: sizeTokens.typeSize.subheading,
+    font-family: typeTokens.fonts.sans,
+    font-style: typeTokens.fontStyles.normal,
+    line-height: typeTokens.leading.subheading,
+    letter-spacing: typeTokens.tracking.subheading
+  }
+
+  leadSample = text {
+    width: 100%,
+    fill: colorTokens.colors.foreground,
+    contents: "Lead: deck, statement, item title",
+    font-size: sizeTokens.typeSize.lead,
+    font-family: typeTokens.fonts.sans,
+    font-style: typeTokens.fontStyles.normal,
+    line-height: typeTokens.leading.lead,
+    letter-spacing: typeTokens.tracking.lead
+  }
+
+  bodySample = text {
+    width: 100%,
+    fill: colorTokens.colors.foreground,
+    contents: "Body: all running copy. Suits & Sandals builds brands, websites and products for companies with complex stories.",
+    font-size: sizeTokens.typeSize.body,
+    font-family: typeTokens.fonts.sans,
+    font-style: typeTokens.fontStyles.normal,
+    line-height: typeTokens.leading.body,
+    letter-spacing: typeTokens.tracking.body
+  }
+
+  smSample = text {
+    width: 100%,
+    fill: colorTokens.colors.foreground,
+    contents: "Small: captions, meta, list items",
+    font-size: sizeTokens.typeSize.sm,
+    font-family: typeTokens.fonts.sans,
+    font-style: typeTokens.fontStyles.normal,
+    line-height: typeTokens.leading.sm,
+    letter-spacing: typeTokens.tracking.sm
+  }
+
+  eyebrowSample = text {
+    fill: colorTokens.colors.foreground,
+    contents: "Eyebrow: kicker above a heading",
+    font-size: sizeTokens.typeSize.eyebrow,
+    font-family: typeTokens.fonts.mono,
+    font-style: typeTokens.fontStyles.medium,
+    line-height: typeTokens.leading.eyebrow
+  }
+
+  codeSample = text {
+    fill: colorTokens.colors.foreground,
+    contents: "const code = 'Geist Mono 13 on 24'",
+    font-size: sizeTokens.typeSize.code,
+    font-family: typeTokens.fonts.mono,
+    font-style: typeTokens.fontStyles.normal,
+    line-height: typeTokens.leading.code
+  }
+}

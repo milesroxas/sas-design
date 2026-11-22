@@ -1,0 +1,25 @@
+import "./type-size-mobile.elyx" as mobile
+
+// Font sizes for the seven text roles, desktop end (1440px) of the site's
+// fluid clamps. Mobile end (375px) lives in type-size-mobile.elyx (media=mobile).
+// Source: sas-site src/app/(frontend)/globals.css `@theme` (--text-*), roles in
+// src/blocks/shared/typography.ts. Sizes are points (= px), as `font-size` takes.
+@variants(mobile.mobileTypeSize)
+export typeSize = tokens {
+  // Hero, Statement layout
+  display: 96,
+  // Page title, a Section's opener
+  heading: 48,
+  // A block's own heading, prose h2
+  subheading: 28,
+  // Deck, statement, item title, prose h3
+  lead: 24,
+  // All running copy, prose h4 (medium)
+  body: 18,
+  // Captions, meta, list items (Tailwind text-sm, fixed)
+  sm: 14,
+  // Eyebrow kicker (font-mono text-xs, fixed)
+  eyebrow: 12,
+  // Code surface (fixed, not fluid)
+  code: 13
+}

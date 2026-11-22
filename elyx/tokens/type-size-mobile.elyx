@@ -1,0 +1,14 @@
+import "./type-size.elyx" as base
+
+@context(media="mobile")
+file {}
+
+// Font sizes at the mobile end (375px) of the site's fluid clamps.
+// sm, eyebrow and code are fixed on the site, so they inherit.
+export mobileTypeSize = tokens : base.typeSize {
+  display: 48,
+  heading: 32,
+  subheading: 24,
+  lead: 20,
+  body: 16
+}

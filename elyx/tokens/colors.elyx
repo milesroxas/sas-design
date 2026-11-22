@@ -1,0 +1,89 @@
+import "./colors-dark.elyx" as dark
+
+// Site palette, light polarity (the context-free default).
+// Source: sas-site src/app/(frontend)/globals.css `palette-light`, the scrim and
+// syntax inks on :root, and the `[data-band="dark"]` surface set.
+// The dark polarity lives in colors-dark.elyx (theme=dark).
+@variants(dark.darkColors)
+export colors = tokens {
+  // Page ground and ink
+  background: .white,
+  foreground: oklch(14.5%, 0, 0deg),
+  // Surfaces
+  card: .white,
+  card-foreground: oklch(14.5%, 0, 0deg),
+  popover: .white,
+  popover-foreground: oklch(14.5%, 0, 0deg),
+  // The action
+  primary: oklch(42%, 0.149, 264.4deg),
+  primary-foreground: oklch(97%, 0.01, 254.6deg),
+  // Control fill
+  secondary: oklch(96.7%, 0, 0deg),
+  secondary-foreground: oklch(21%, 0.006, 285.885deg),
+  // Ground of the always-dark panel (data-band="dark")
+  tertiary: oklch(22%, 0, 0deg),
+  tertiary-foreground: oklch(98.5%, 0, 0deg),
+  // Quiet stripe (band theme "neutral")
+  neutral: oklch(96.7%, 0, 0deg),
+  neutral-foreground: oklch(21%, 0.006, 285.885deg),
+  // Brand band (band theme "brand")
+  brand: oklch(87%, 0.14, 85deg),
+  brand-foreground: oklch(22%, 0.04, 75deg),
+  muted: .whitesmoke,
+  muted-foreground: oklch(55.6%, 0, 0deg),
+  // Selected or hover surface: a tint of primary's hue
+  accent: oklch(95%, 0.02, 264.4deg),
+  accent-foreground: oklch(30%, 0.09, 264.4deg),
+  destructive: oklch(58.33%, 0.2388, 28.49deg),
+  border: oklch(92.2%, 0, 0deg),
+  input: oklch(92.2%, 0, 0deg),
+  ring: oklch(70.8%, 0, 0deg),
+  // Status
+  success: oklch(78%, 0.08, 200deg),
+  warning: oklch(88.72%, 0.0983, 76.66deg),
+  error: oklch(75%, 0.15, 25deg),
+  // Active or selected indicator
+  active: oklch(52%, 0.14, 150deg),
+  // Charts (shadcn)
+  chart-1: oklch(80.74%, 0.1, 250.28deg),
+  chart-2: oklch(61.8762%, 0.2067, 259.2484deg),
+  chart-3: oklch(54.6%, 0.24, 262.88deg),
+  chart-4: oklch(48.8%, 0.24, 264.376deg),
+  chart-5: oklch(42.4%, 0.199, 265.638deg),
+  // Figure series (docs/figures.md): four categorical slots plus a reference
+  figure-1: oklch(57.5273%, 0.16, 255.53deg),
+  figure-2: oklch(62.2064%, 0.17, 40.11deg),
+  figure-3: oklch(58.9554%, 0.12, 164.31deg),
+  figure-4: oklch(62.47%, 0.13, 75.1486deg),
+  figure-reference: muted-foreground,
+  // Sidebar (components/ui/sidebar)
+  sidebar: oklch(98.5%, 0, 0deg),
+  sidebar-foreground: oklch(14.5%, 0, 0deg),
+  sidebar-primary: oklch(54.6%, 0.24, 262.88deg),
+  sidebar-primary-foreground: oklch(97%, 0.01, 254.6deg),
+  sidebar-accent: accent,
+  sidebar-accent-foreground: accent-foreground,
+  sidebar-border: oklch(92.2%, 0, 0deg),
+  sidebar-ring: oklch(70.8%, 0, 0deg),
+  // Scrim: the dark wash over media, the same in both polarities
+  scrim: .black,
+  scrim-foreground: .white,
+  // Always-dark panel (data-band="dark": code block, index banner). The site
+  // derives these from tertiary with color-mix in oklab; values are that mix.
+  band-dark-background: tertiary,
+  band-dark-foreground: tertiary-foreground,
+  band-dark-muted: oklch(31.2%, 0, 0deg),
+  band-dark-muted-foreground: oklch(69.4%, 0, 0deg),
+  band-dark-card: oklch(28.1%, 0, 0deg),
+  band-dark-secondary: oklch(33.5%, 0, 0deg),
+  band-dark-accent: oklch(27%, 0.037, 264.4deg),
+  band-dark-border: oklch(100%, 0, 0deg, 12%),
+  band-dark-input: oklch(100%, 0, 0deg, 15%),
+  // Syntax inks for the code surface, the same in both polarities
+  syntax-operator: oklch(80%, 0, 0deg),
+  syntax-keyword: oklch(72%, 0.14, 260deg),
+  syntax-entity: oklch(82%, 0.1, 200deg),
+  syntax-property: chart-1,
+  syntax-string: oklch(75%, 0.16, 150deg),
+  syntax-number: oklch(87%, 0.14, 85deg)
+}

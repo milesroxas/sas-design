@@ -1,0 +1,62 @@
+import "./colors.elyx" as base
+
+@context(theme="dark")
+file {}
+
+// Site palette, dark polarity. Also the "inverted" band on a light visit.
+// Source: sas-site src/app/(frontend)/globals.css `palette-dark`.
+// Members not restated here keep their light value (figure-2, scrim, syntax).
+export darkColors = tokens : base.colors {
+  background: oklch(14.5%, 0, 0deg),
+  // Softened near-white ink: light glyphs bloom on dark grounds
+  foreground: oklch(90%, 0, 0deg),
+  card: oklch(20.5%, 0, 0deg),
+  card-foreground: oklch(90%, 0, 0deg),
+  popover: oklch(20.5%, 0, 0deg),
+  popover-foreground: oklch(90%, 0, 0deg),
+  primary: oklch(52.7%, 0.25, 265.6deg),
+  primary-foreground: oklch(97%, 0.01, 254.6deg),
+  secondary: oklch(27.4%, 0.006, 286.03deg),
+  secondary-foreground: oklch(90%, 0, 0deg),
+  // The always-dark panel sits a step below the dark page ground
+  tertiary: oklch(8%, 0, 0deg),
+  tertiary-foreground: oklch(90%, 0, 0deg),
+  neutral: oklch(20%, 0, 0deg),
+  neutral-foreground: oklch(90%, 0, 0deg),
+  brand: oklch(50.14%, 0.1085, 70.18deg),
+  brand-foreground: oklch(94%, 0.01, 95deg),
+  muted: oklch(26.9%, 0, 0deg),
+  muted-foreground: oklch(68%, 0, 0deg),
+  accent: oklch(29%, 0.05, 265.6deg),
+  accent-foreground: oklch(90%, 0.04, 265.6deg),
+  destructive: oklch(70.1873%, 0.1895, 22.16deg),
+  border: oklch(100%, 0, 0deg, 10%),
+  input: oklch(100%, 0, 0deg, 15%),
+  ring: oklch(55.6%, 0, 0deg),
+  success: oklch(30.1979%, 0.05, 208.4274deg),
+  warning: oklch(35.04%, 0.0769, 67.91deg),
+  error: oklch(45%, 0.1, 25deg),
+  active: oklch(75%, 0.16, 150deg),
+  figure-1: oklch(62.2061%, 0.16, 255.05deg),
+  figure-3: oklch(62.12%, 0.1283, 163.11deg),
+  figure-4: oklch(66.99%, 0.14, 73.2269deg),
+  sidebar: oklch(20.5%, 0, 0deg),
+  sidebar-foreground: oklch(90%, 0, 0deg),
+  sidebar-primary: oklch(61.8762%, 0.2067, 259.2484deg),
+  sidebar-primary-foreground: oklch(97%, 0.01, 254.6deg),
+  sidebar-border: oklch(100%, 0, 0deg, 10%),
+  sidebar-ring: oklch(55.6%, 0, 0deg),
+  // Aliases are restated: an inherited alias resolves in the light scope where
+  // it was authored, so without these it would keep the light value.
+  figure-reference: muted-foreground,
+  sidebar-accent: accent,
+  sidebar-accent-foreground: accent-foreground,
+  band-dark-background: tertiary,
+  band-dark-foreground: tertiary-foreground,
+  // Always-dark panel on a dark visit (mix of the 0.08 tertiary)
+  band-dark-muted: oklch(17.8%, 0, 0deg),
+  band-dark-muted-foreground: oklch(58.8%, 0, 0deg),
+  band-dark-card: oklch(14.6%, 0, 0deg),
+  band-dark-secondary: oklch(20.3%, 0, 0deg),
+  band-dark-accent: oklch(19.2%, 0.06, 265.6deg)
+}

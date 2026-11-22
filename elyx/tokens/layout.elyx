@@ -1,0 +1,43 @@
+import "./layout-mobile.elyx" as mobile
+
+// Page layout lengths at the desktop artboard (1440px wide).
+// Mobile (375px) lives in layout-mobile.elyx (media=mobile).
+// Source: sas-site src/app/(frontend)/globals.css (gutter, grid gap, content
+// widths, chrome heights), src/blocks/shared/section.tsx (section rhythm),
+// src/blocks/shared/grid.tsx (8-column BlockGrid).
+@variants(mobile.mobileLayout)
+export layout = tokens {
+  // Artboard width for screens
+  viewport: 1440,
+  // Outer page gutter (--spacing-gutter: 3rem from md, 1rem below)
+  gutter: 48,
+  // The one gap between the 8 BlockGrid columns (--spacing-grid)
+  grid-gap: 32,
+  // Page column (--max-width-content-default, 96rem) and reading measure (40rem)
+  content-max: 1536,
+  content-narrow: 640,
+  // Fixed chrome (--header-height, --footer-height) and their scrolled heights
+  header-height: 64,
+  footer-height: 56,
+  header-height-scrolled: 48,
+  footer-height-scrolled: 40,
+  // Section rhythm: `band` is a composition shell's vertical padding (py-*),
+  // `stack` the gap between blocks a Section nests (space-y-*).
+  band-tight: 48,
+  band-normal: 96,
+  band-loose: 192,
+  stack-tight: 96,
+  stack-normal: 192,
+  stack-loose: 384,
+  // BlockGrid column spans at 1440px: content 1344px = 8 x 140px + 7 x 32px.
+  // span-n = 140n + 32(n - 1). Place cells in a row stack with grid-gap.
+  content-width: 1344,
+  span-1: 140,
+  span-2: 312,
+  span-3: 484,
+  span-4: 656,
+  span-5: 828,
+  span-6: 1000,
+  span-7: 1172,
+  span-8: 1344
+}

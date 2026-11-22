@@ -1,0 +1,39 @@
+// Viewport-independent lengths: the Tailwind spacing steps the site uses
+// (1 step = 4px) and the radius scale.
+// Source: sas-site src/app/(frontend)/globals.css, src/styles/shadcn-theme.css.
+export space = tokens {
+  s-0-5: 2,
+  s-1: 4,
+  s-1-5: 6,
+  s-2: 8,
+  s-3: 12,
+  s-4: 16,
+  s-5: 20,
+  s-6: 24,
+  s-8: 32,
+  s-10: 40,
+  s-12: 48,
+  s-14: 56,
+  s-16: 64,
+  s-20: 80,
+  s-24: 96,
+  s-32: 128,
+  s-48: 192
+}
+
+// --radius is 0.45rem (7.2px); the Tailwind steps derive from it.
+export radius = tokens {
+  base: 7.2,
+  sm: 3.2,
+  md: 5.2,
+  lg: base,
+  xl: 11.2,
+  r-2xl: 12.96,
+  r-3xl: 15.84,
+  r-4xl: 18.72,
+  // Menu cards and the Contents surface
+  menu-card: 12,
+  // Sheets and drawers
+  sheet: 16,
+  full: 9999
+}
