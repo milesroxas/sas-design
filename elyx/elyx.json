@@ -1,0 +1,10 @@
+{
+  "assets": { "include": ["resources/assets"] },
+  "fonts": { "include": ["resources/fonts"] },
+  "files": {
+    "exclude": [
+      ".pnpm-store",
+      "elyx_deps"
+    ]
+  }
+}

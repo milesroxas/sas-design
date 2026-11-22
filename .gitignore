@@ -1,0 +1,9 @@
+.DS_Store
+node_modules/
+
+# Elyx installed dependencies (commit elyx.lock, not the copies)
+elyx/elyx_deps/
+elyx/.pnpm-store/
+
+# OpenFilm renders: the MP4 saved beside each film.html (source media in a film's folders stays tracked)
+studio/*/*.mp4
